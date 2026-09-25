@@ -44,12 +44,12 @@ Open the target project in your coding assistant and type:
 
 ## Overview
 
-This repository provides the **AI Agent Hackathon Evaluation Skill** (`ai-agent-hackathon-evaluator`). The skill instructs a coding agent to objectively inspect a project codebase, analyze all components of the AI agent harness, assign evidence-based scores across five evaluation parameters, generate a standardized Markdown evaluation report (`hack_evaluation.md`), commit the report to Git, and return a strict chat response.
+This repository provides the **AI Agent Hackathon Evaluation Skill** (`hack-eval`). The skill instructs a coding agent to objectively inspect a project codebase, analyze all components of the AI agent harness, assign evidence-based scores across five evaluation parameters, generate a standardized Markdown evaluation report (`hack_evaluation.md`), commit the report to Git, and return a strict chat response.
 
 ### Skill Locations
 The skill is packaged according to Antigravity's workspace customization standards and is available in:
-- `.agents/skills/ai-agent-hackathon-evaluator/SKILL.md` (Native Antigravity Customization Root)
-- `skills/ai-agent-hackathon-evaluator/SKILL.md` (Standard Skills Directory)
+- `.agents/skills/hack-eval/SKILL.md` (Native Antigravity Customization Root)
+- `skills/hack-eval/SKILL.md` (Standard Skills Directory)
 - `.agents/skills.json` (Customization manifest)
 
 ---
@@ -63,7 +63,7 @@ eval_skill/
 │   │   └── hack-eval-command.md                  # Antigravity /hack-eval rule
 │   ├── skills.json                               # Skills configuration manifest
 │   └── skills/
-│       └── ai-agent-hackathon-evaluator/
+│       └── hack-eval/
 │           ├── SKILL.md                          # Master executable evaluation skill
 │           ├── references/
 │           │   ├── scoring-rubric.md             # Detailed scoring bands and criteria
@@ -83,7 +83,7 @@ eval_skill/
 │       └── hack-eval.md                          # OpenCode slash command
 ├── AGENTS.md                                     # Universal agent configuration
 ├── skills/
-│   └── ai-agent-hackathon-evaluator/             # Mirrored skill package
+│   └── hack-eval/                                # Mirrored skill package
 │       ├── SKILL.md
 │       ├── references/
 │       │   ├── scoring-rubric.md

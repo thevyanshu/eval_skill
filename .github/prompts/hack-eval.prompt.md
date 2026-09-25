@@ -7,8 +7,8 @@ description: Run an AI Agent Hackathon Evaluation across 5 parameters (450 marks
 Evaluate this AI agent repository against the hackathon problem statement.
 
 ## Instructions
-1. Check if the user passed a problem statement in this prompt or if it is configured in `.agents/skills/ai-agent-hackathon-evaluator/SKILL.md`. If missing, ask the user to provide it.
-2. Follow all guidelines in `.agents/skills/ai-agent-hackathon-evaluator/SKILL.md`.
+1. Check if the user passed a problem statement in this prompt or if it is configured in `.agents/skills/hack-eval/SKILL.md`. If missing, ask the user to provide it.
+2. Follow all guidelines in `.agents/skills/hack-eval/SKILL.md`.
 3. Perform a comprehensive read-only review of the entire agent harness.
 4. Score all 5 parameters:
    - Problem Statement Alignment (0-100)

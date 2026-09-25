@@ -1,5 +1,5 @@
 ---
-name: ai-agent-hackathon-evaluator
+name: hack-eval
 description: Evaluates an AI agent's complete implementation and harness against a defined hackathon problem statement across 5 core parameters (Problem Statement Alignment, Code Quality, Innovation, Security, Grounding and Evals - 450 marks total), generates hack_evaluation.md, commits it to Git with a specific commit message, and outputs 'File created'.
 ---
 
