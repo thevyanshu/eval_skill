@@ -4,6 +4,44 @@ A reusable evaluation skill designed for coding agents to rigorously judge hacka
 
 ---
 
+## ⚡ Quick Setup: Add This Skill to Any Project
+
+To evaluate any hackathon submission using your preferred coding agent, copy the skill configuration into the root of the project you want to judge:
+
+### 1. Copy Skill Configuration to Target Repository
+
+**PowerShell (Windows):**
+```powershell
+# From the target project root, copy the skill files:
+Copy-Item -Recurse -Force "path\to\eval_skill\.agents", "path\to\eval_skill\.claude", "path\to\eval_skill\.github", "path\to\eval_skill\.opencode", "path\to\eval_skill\AGENTS.md" -Destination .
+```
+
+**Bash / Terminal (macOS / Linux):**
+```bash
+# From the target project root, copy the skill files:
+cp -r path/to/eval_skill/{.agents,.claude,.github,.opencode,AGENTS.md} .
+```
+
+*(Minimal universal setup: simply copy the `.agents/` folder and `AGENTS.md` file.)*
+
+---
+
+### 2. Run the Evaluation in Your Coding Agent
+
+Open the target project in your coding assistant and type:
+
+| Coding Agent | Slash Command / Prompt | How to Run |
+|---|---|---|
+| **Antigravity (AGY)** | `/hack-eval <problem_statement>` | Native model rule detects command automatically |
+| **Claude Code** | `/hack-eval <problem_statement>` | Native command loaded from `.claude/commands/hack-eval.md` |
+| **GitHub Copilot** | `/hack-eval <problem_statement>` | Select `/hack-eval` in Copilot Chat prompt picker |
+| **OpenCode** | `/hack-eval <problem_statement>` | Native command loaded from `.opencode/commands/hack-eval.md` |
+| **Cursor / Windsurf / Others** | Type in chat: *"Execute /hack-eval using AGENTS.md"* | Guided by standard `AGENTS.md` |
+
+> 💡 **Tip:** You can supply the hackathon problem statement directly in the command (e.g. `/hack-eval "Build a multi-agent triage system..."`). If omitted, the agent will pause and prompt you to enter it before running.
+
+---
+
 ## Overview
 
 This repository provides the **AI Agent Hackathon Evaluation Skill** (`ai-agent-hackathon-evaluator`). The skill instructs a coding agent to objectively inspect a project codebase, analyze all components of the AI agent harness, assign evidence-based scores across five evaluation parameters, generate a standardized Markdown evaluation report (`hack_evaluation.md`), commit the report to Git, and return a strict chat response.
@@ -21,6 +59,8 @@ The skill is packaged according to Antigravity's workspace customization standar
 ```text
 eval_skill/
 ├── .agents/
+│   ├── rules/
+│   │   └── hack-eval-command.md                  # Antigravity /hack-eval rule
 │   ├── skills.json                               # Skills configuration manifest
 │   └── skills/
 │       └── ai-agent-hackathon-evaluator/
@@ -31,6 +71,17 @@ eval_skill/
 │           │   └── harness-inspection-guide.md   # Step-by-step harness discovery guide
 │           └── resources/
 │               └── report-template.md            # Structural template for hack_evaluation.md
+├── .claude/
+│   └── commands/
+│       └── hack-eval.md                          # Claude Code slash command
+├── .github/
+│   ├── copilot-instructions.md                   # GitHub Copilot agent instructions
+│   └── prompts/
+│       └── hack-eval.prompt.md                   # GitHub Copilot slash prompt
+├── .opencode/
+│   └── commands/
+│       └── hack-eval.md                          # OpenCode slash command
+├── AGENTS.md                                     # Universal agent configuration
 ├── skills/
 │   └── ai-agent-hackathon-evaluator/             # Mirrored skill package
 │       ├── SKILL.md
