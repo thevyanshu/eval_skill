@@ -91,3 +91,24 @@ Upon successful creation and commit of `hack_evaluation.md`, the evaluator agent
 File created
 ```
 No scores, summaries, or explanatory text are displayed in the chat.
+
+---
+
+## Universal Slash Command (`/hack-eval`)
+
+This skill includes native configuration for leading AI coding assistants:
+
+| Assistant | Slash Command | Config Location | How to Invoke |
+|---|---|---|---|
+| **Antigravity (AGY)** | `/hack-eval` or `/skill` | `.agents/rules/hack-eval-command.md` | Type `/hack-eval <problem_statement>` |
+| **Claude Code** | `/hack-eval` | `.claude/commands/hack-eval.md` | Type `/hack-eval <problem_statement>` |
+| **GitHub Copilot** | `/hack-eval` | `.github/prompts/hack-eval.prompt.md` | Select or type `/hack-eval` in Copilot Chat |
+| **OpenCode** | `/hack-eval` | `.opencode/commands/hack-eval.md` | Type `/hack-eval <problem_statement>` |
+| **Any Agent** | Universal | `AGENTS.md` | Follows standard `AGENTS.md` instruction file |
+
+### Usage Example:
+```text
+/hack-eval Build a multi-agent customer support triage system that classifies incoming tickets, runs RAG on product docs, and drafts replies.
+```
+If you omit the problem statement, the agent will pause and prompt you for it before running the evaluation.
+
