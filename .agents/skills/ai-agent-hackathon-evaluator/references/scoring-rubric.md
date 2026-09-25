@@ -1,7 +1,7 @@
 # Detailed Scoring Rubric & Marking Guide
 
 This document defines the detailed scoring rubrics across all five evaluation parameters for the AI Agent Hackathon Evaluation.
-Total Marks Available: **405 Marks**.
+Total Marks Available: **450 Marks**.
 
 ---
 
@@ -92,35 +92,35 @@ Measures resilience against LLM-specific vulnerabilities, safe tool execution, c
 
 ---
 
-## 5. Grounding and Evals (0 – 5.0 Marks Total)
+## 5. Grounding and Evals (0 – 50.0 Marks Total)
 
-> **STRICT MAXIMUM: 5.0 MARKS TOTAL.**
-> Split into two subcategories of 2.5 marks each:
-> - **Grounding:** 0.0 – 2.5 Marks
-> - **Evals:** 0.0 – 2.5 Marks
+> **STRICT MAXIMUM: 50.0 MARKS TOTAL.**
+> Split into two subcategories of 25 marks each:
+> - **Grounding:** 0.0 – 25.0 Marks
+> - **Evals:** 0.0 – 25.0 Marks
 
-### 5.1 Grounding (0.0 – 2.5 Marks)
+### 5.1 Grounding (0.0 – 25.0 Marks)
 Measures factual grounding, context fidelity, source attribution, and hallucination prevention.
 
 | Points | Criteria |
 |---|---|
-| **0.5 pts** | **Knowledge Source Reliability & Ingestion:** Uses authoritative, reliable data sources with clean parsing and preprocessing. |
-| **0.5 pts** | **Retrieval Relevance & Precision:** High precision retrieval, context filtering, minimal irrelevancy or noise in prompt context. |
-| **0.5 pts** | **Citation & Source Attribution:** Generates verifiable citations, references source documents, and maintains provenance in responses. |
-| **0.5 pts** | **Hallucination Mitigation & Faithfulness:** Prompting and constraints enforce strict adherence to ground truth; explicitly refrains from answering when context is insufficient. |
-| **0.5 pts** | **Missing & Conflicting Data Handling:** Robust fallback handling when source documents conflict or data is unavailable. |
+| **5.0 pts** | **Knowledge Source Reliability & Ingestion:** Uses authoritative, reliable data sources with clean parsing and preprocessing. |
+| **5.0 pts** | **Retrieval Relevance & Precision:** High precision retrieval, context filtering, minimal irrelevancy or noise in prompt context. |
+| **5.0 pts** | **Citation & Source Attribution:** Generates verifiable citations, references source documents, and maintains provenance in responses. |
+| **5.0 pts** | **Hallucination Mitigation & Faithfulness:** Prompting and constraints enforce strict adherence to ground truth; explicitly refrains from answering when context is insufficient. |
+| **5.0 pts** | **Missing & Conflicting Data Handling:** Robust fallback handling when source documents conflict or data is unavailable. |
 
 *Note on Grounding without RAG:* If the problem statement does not require external retrieval (e.g. pure code generation or mathematical logic), evaluate grounding based on domain constraints, data validation, and factual adherence.
 
-### 5.2 Evals (0.0 – 2.5 Marks)
+### 5.2 Evals (0.0 – 25.0 Marks)
 Measures the sophistication, coverage, and reproducibility of the agent evaluation suite.
 
 | Points | Criteria |
 |---|---|
-| **0.5 pts** | **Deterministic & Unit Evaluations:** Assertions verifying tool calling schemas, state machine transitions, and output JSON schemas. |
-| **0.5 pts** | **LLM-Based / Semantic Metrics:** Implemented evaluations assessing faithfulness, answer relevance, context recall, or task goal completion. |
-| **0.5 pts** | **Agent Trajectory & Step Evaluation:** Evaluating agent decision sequences, tool call arguments, recovery from errors, and execution paths. |
-| **0.5 pts** | **Test Datasets & Adversarial Cases:** A curated golden evaluation set, edge cases, failure cases, and adversarial prompt tests. |
-| **0.5 pts** | **Reproducibility & Automation:** An executable eval script (e.g., `python run_evals.py` or `npm run eval`) with structured metric logging. |
+| **5.0 pts** | **Deterministic & Unit Evaluations:** Assertions verifying tool calling schemas, state machine transitions, and output JSON schemas. |
+| **5.0 pts** | **LLM-Based / Semantic Metrics:** Implemented evaluations assessing faithfulness, answer relevance, context recall, or task goal completion. |
+| **5.0 pts** | **Agent Trajectory & Step Evaluation:** Evaluating agent decision sequences, tool call arguments, recovery from errors, and execution paths. |
+| **5.0 pts** | **Test Datasets & Adversarial Cases:** A curated golden evaluation set, edge cases, failure cases, and adversarial prompt tests. |
+| **5.0 pts** | **Reproducibility & Automation:** An executable eval script (e.g., `python run_evals.py` or `npm run eval`) with structured metric logging. |
 
 *Note on Eval Frameworks:* Merely having `ragas`, `deepeval`, or `truera` in `requirements.txt` receives 0 marks if no test scripts actually run them. Marks are awarded solely for implemented, working evaluations.

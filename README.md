@@ -47,7 +47,7 @@ eval_skill/
 
 ## Evaluation Parameters & Scoring System
 
-The evaluation is scored out of **405 total marks** (primary scores are never normalized to 100):
+The evaluation is scored out of **450 total marks** (primary scores are never normalized to 100):
 
 | Parameter | Maximum Marks | Description |
 |---|---|---|
@@ -55,8 +55,9 @@ The evaluation is scored out of **405 total marks** (primary scores are never no
 | **2. Code Quality** | 100 | Clean architecture, modularity, type safety, error handling, 12-factor config, tests, observability. |
 | **3. Innovation** | 100 | Non-trivial agent architecture, orchestration (LangGraph, custom DAG), tools, memory, RAG innovations. |
 | **4. Security** | 100 | Prompt injection defense, tool permissions/sandboxing, secret hygiene, RAG security, DoS/loop limits. |
-| **5. Grounding and Evals** | 5 | **Grounding (2.5 pts):** Factual fidelity, citations, hallucination guards. <br>**Evals (2.5 pts):** Deterministic tests, trajectory evals, benchmark datasets. |
-| **Total Score** | **405** | Total sum of all parameters. |
+| **5. Grounding and Evals** | 50 | **Grounding (25 pts):** Factual fidelity, citations, hallucination guards. <br>**Evals (25 pts):** Deterministic tests, trajectory evals, benchmark datasets. |
+| **Total Score** | **450** | Total sum of all parameters. |
+
 
 ---
 

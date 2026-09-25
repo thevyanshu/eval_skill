@@ -15,10 +15,10 @@ This template defines the exact structure and formatting required for `hack_eval
 | Code Quality | 100 | {{SCORE_CODE_QUALITY}} | {{PCT_CODE_QUALITY}}% |
 | Innovation | 100 | {{SCORE_INNOVATION}} | {{PCT_INNOVATION}}% |
 | Security | 100 | {{SCORE_SECURITY}} | {{PCT_SECURITY}}% |
-| Grounding and Evals | 5 | {{SCORE_GROUNDING_EVALS}} | {{PCT_GROUNDING_EVALS}}% |
-| **Total Score** | **405** | **{{TOTAL_SCORE}}** | **{{TOTAL_PCT}}%** |
+| Grounding and Evals | 50 | {{SCORE_GROUNDING_EVALS}} | {{PCT_GROUNDING_EVALS}}% |
+| **Total Score** | **450** | **{{TOTAL_SCORE}}** | **{{TOTAL_PCT}}%** |
 
-*Note: Total score is out of 405 marks. Scores are calculated objectively based on verified codebase evidence.*
+*Note: Total score is out of 450 marks. Scores are calculated objectively based on verified codebase evidence.*
 
 ---
 
@@ -144,12 +144,12 @@ This template defines the exact structure and formatting required for `hack_eval
 
 ---
 
-### 3.5 Grounding and Evals (Awarded: {{SCORE_GROUNDING_EVALS}} / 5.0)
+### 3.5 Grounding and Evals (Awarded: {{SCORE_GROUNDING_EVALS}} / 50.0)
 
 - **Subcategory Breakdown:**
-  - **Grounding Score:** {{SCORE_GROUNDING}} / 2.5
-  - **Evals Score:** {{SCORE_EVALS}} / 2.5
-  - **Total Grounding and Evals:** {{SCORE_GROUNDING_EVALS}} / 5.0
+  - **Grounding Score:** {{SCORE_GROUNDING}} / 25.0
+  - **Evals Score:** {{SCORE_EVALS}} / 25.0
+  - **Total Grounding and Evals:** {{SCORE_GROUNDING_EVALS}} / 50.0
 
 - **Assessment:**
   - **Grounding (Factual fidelity, citations, hallucination guards):**
@@ -206,8 +206,8 @@ This template defines the exact structure and formatting required for `hack_eval
   - Code Quality: {{SCORE_CODE_QUALITY}} / 100
   - Innovation: {{SCORE_INNOVATION}} / 100
   - Security: {{SCORE_SECURITY}} / 100
-  - Grounding and Evals: {{SCORE_GROUNDING_EVALS}} / 5.0
-  - **Total Score: {{TOTAL_SCORE}} / 405.0**
+  - Grounding and Evals: {{SCORE_GROUNDING_EVALS}} / 50.0
+  - **Total Score: {{TOTAL_SCORE}} / 450.0**
 
 - **Strongest Aspects:**
   - {{FINAL_STRONG_1}}

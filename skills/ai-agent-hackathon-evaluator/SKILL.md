@@ -1,11 +1,11 @@
 ---
 name: ai-agent-hackathon-evaluator
-description: Evaluates an AI agent's complete implementation and harness against a defined hackathon problem statement across 5 core parameters (Problem Statement Alignment, Code Quality, Innovation, Security, Grounding and Evals - 405 marks total), generates hack_evaluation.md, commits it to Git with a specific commit message, and outputs 'File created'.
+description: Evaluates an AI agent's complete implementation and harness against a defined hackathon problem statement across 5 core parameters (Problem Statement Alignment, Code Quality, Innovation, Security, Grounding and Evals - 450 marks total), generates hack_evaluation.md, commits it to Git with a specific commit message, and outputs 'File created'.
 ---
 
 # AI Agent Hackathon Evaluation Skill
 
-This skill governs the end-to-end evaluation of an AI agent's implementation and harness against a hackathon problem statement. It inspects the codebase objectively, gathers concrete evidence, scores 5 defined parameters totaling **405 marks**, generates a comprehensive report in `hack_evaluation.md`, commits the report to Git, and returns a strict chat response.
+This skill governs the end-to-end evaluation of an AI agent's implementation and harness against a hackathon problem statement. It inspects the codebase objectively, gathers concrete evidence, scores 5 defined parameters totaling **450 marks**, generates a comprehensive report in `hack_evaluation.md`, commits the report to Git, and returns a strict chat response.
 
 ---
 
@@ -67,7 +67,7 @@ The evaluation MUST be strictly non-destructive. The evaluator agent acts as an 
 
 ## 3. Evaluation Parameters & Scoring System
 
-The evaluation is scored out of **405 total marks**. The primary score must **NEVER** be normalized to 100.
+The evaluation is scored out of **450 total marks**. The primary score must **NEVER** be normalized to 100.
 
 | # | Parameter | Maximum Score | Scoring Range |
 |---|---|---|---|
@@ -75,8 +75,8 @@ The evaluation is scored out of **405 total marks**. The primary score must **NE
 | 2 | Code Quality | 100 | 0 – 100 |
 | 3 | Innovation | 100 | 0 – 100 |
 | 4 | Security | 100 | 0 – 100 |
-| 5 | Grounding and Evals | 5 | 0.0 – 5.0 |
-| | **Total Score** | **405** | **0.0 – 405.0** |
+| 5 | Grounding and Evals | 50 | 0.0 – 50.0 |
+| | **Total Score** | **450** | **0.0 – 450.0** |
 
 ```text
 Total Score = Problem Statement Alignment + Code Quality + Innovation + Security + Grounding and Evals
@@ -212,35 +212,35 @@ Perform a comprehensive, rigorous security audit of the AI agent and its complet
 
 ---
 
-### Parameter 5: Grounding and Evals (0 – 5.0 Marks Total)
+### Parameter 5: Grounding and Evals (0 – 50.0 Marks Total)
 
-> **CRITICAL SCORING RULE:** This parameter is scored out of **5.0 marks total** (NOT 100).
+> **CRITICAL SCORING RULE:** This parameter is scored out of **50.0 marks total** (NOT 100).
 > It consists of two subcategories:
-> - **Grounding:** 0.0 – 2.5 Marks
-> - **Evals:** 0.0 – 2.5 Marks
-> Total = `Grounding Score + Evals Score` (Maximum: 5.0).
+> - **Grounding:** 0.0 – 25.0 Marks
+> - **Evals:** 0.0 – 25.0 Marks
+> Total = `Grounding Score + Evals Score` (Maximum: 50.0).
 
-#### 5.1 Grounding (0.0 – 2.5 Marks)
+#### 5.1 Grounding (0.0 – 25.0 Marks)
 Evaluate how the agent grounds its outputs in authoritative knowledge, avoids hallucination, and maintains factual traceability.
 
 > *Note:* Do not assume RAG is mandatory for every problem. If a problem does not require retrieval, evaluate grounding based on domain constraints, data validation, and factual adherence.
 
-- **Knowledge Source Reliability (0.5 pts):** Authoritative, verified data sources, clean ingestion.
-- **Retrieval Relevance & Context Precision (0.5 pts):** Relevant chunk retrieval, minimal context noise, sensible chunking.
-- **Citation & Source Attribution (0.5 pts):** Traceable citations, metadata references, clear origin of facts in answers.
-- **Hallucination Prevention & Faithfulness (0.5 pts):** Prompts enforcing strict grounding, refusal to answer when facts are absent.
-- **Handling Missing/Conflicting Information (0.5 pts):** Graceful fallback when information is unavailable or contradictory.
+- **Knowledge Source Reliability (5.0 pts):** Authoritative, verified data sources, clean ingestion.
+- **Retrieval Relevance & Context Precision (5.0 pts):** Relevant chunk retrieval, minimal context noise, sensible chunking.
+- **Citation & Source Attribution (5.0 pts):** Traceable citations, metadata references, clear origin of facts in answers.
+- **Hallucination Prevention & Faithfulness (5.0 pts):** Prompts enforcing strict grounding, refusal to answer when facts are absent.
+- **Handling Missing/Conflicting Information (5.0 pts):** Graceful fallback when information is unavailable or contradictory.
 
-#### 5.2 Evals (0.0 – 2.5 Marks)
+#### 5.2 Evals (0.0 – 25.0 Marks)
 Evaluate the sophistication, coverage, and reproducibility of the evaluation harness used to measure agent performance.
 
 > *Note:* Do not award marks simply because an eval framework (Ragas, DeepEval, etc.) is listed in `requirements.txt`. Evaluate whether it is **meaningfully implemented and executed**.
 
-- **Deterministic & Unit Evaluations (0.5 pts):** Assertions on agent outputs, tool call schemas, state transitions.
-- **LLM-as-a-Judge / Semantic Metrics (0.5 pts):** Implemented rubrics for faithfulness, answer relevance, context recall.
-- **Agent Trajectory & Tool Call Evals (0.5 pts):** Testing tool calling accuracy, step sequences, recovery from errors.
-- **Benchmark / Dataset & Failure-Case Testing (0.5 pts):** Golden evaluation datasets, adversarial test cases, edge case test suites.
-- **Eval Automation & Reproducibility (0.5 pts):** Reproducible eval runner script (`run_evals.py` or CI integration), logged metrics.
+- **Deterministic & Unit Evaluations (5.0 pts):** Assertions on agent outputs, tool call schemas, state transitions.
+- **LLM-as-a-Judge / Semantic Metrics (5.0 pts):** Implemented rubrics for faithfulness, answer relevance, context recall.
+- **Agent Trajectory & Tool Call Evals (5.0 pts):** Testing tool calling accuracy, step sequences, recovery from errors.
+- **Benchmark / Dataset & Failure-Case Testing (5.0 pts):** Golden evaluation datasets, adversarial test cases, edge case test suites.
+- **Eval Automation & Reproducibility (5.0 pts):** Reproducible eval runner script (`run_evals.py` or CI integration), logged metrics.
 
 ---
 
@@ -315,8 +315,8 @@ The report **MUST** follow this exact structure:
 | Code Quality | 100 | [SCORE] | [PCT]% |
 | Innovation | 100 | [SCORE] | [PCT]% |
 | Security | 100 | [SCORE] | [PCT]% |
-| Grounding and Evals | 5 | [SCORE] | [PCT]% |
-| **Total Score** | **405** | **[TOTAL_SCORE]** | **[TOTAL_PCT]%** |
+| Grounding and Evals | 50 | [SCORE] | [PCT]% |
+| **Total Score** | **450** | **[TOTAL_SCORE]** | **[TOTAL_PCT]%** |
 
 ---
 
@@ -380,11 +380,11 @@ The report **MUST** follow this exact structure:
 - **Recommendations:**
   - [Concrete actionable advice]
 
-### 3.5 Grounding and Evals (Awarded: [TOTAL_5] / 5.0)
+### 3.5 Grounding and Evals (Awarded: [TOTAL_50] / 50.0)
 - **Subcategory Breakdown:**
-  - **Grounding Score:** [SCORE_G] / 2.5
-  - **Evals Score:** [SCORE_E] / 2.5
-  - **Total Grounding and Evals:** [TOTAL_5] / 5.0
+  - **Grounding Score:** [SCORE_G] / 25.0
+  - **Evals Score:** [SCORE_E] / 25.0
+  - **Total Grounding and Evals:** [TOTAL_50] / 50.0
 - **Assessment:**
   - Grounding: [Reliability, citations, hallucination guards]
   - Evals: [Deterministic tests, trajectory evals, benchmark datasets]
@@ -424,8 +424,8 @@ The report **MUST** follow this exact structure:
   - Code Quality: [SCORE] / 100
   - Innovation: [SCORE] / 100
   - Security: [SCORE] / 100
-  - Grounding and Evals: [SCORE] / 5.0
-  - **Total Score: [TOTAL] / 405.0**
+  - Grounding and Evals: [SCORE] / 50.0
+  - **Total Score: [TOTAL] / 450.0**
 - **Strongest Aspects:** [Key highlights]
 - **Major Gaps:** [Key deficits]
 - **Improvement Priorities:** [Top 3 items team should address next]
@@ -500,8 +500,8 @@ Before finishing the evaluation session, verify:
 - [ ] Problem statement placeholder was verified (or user was prompted).
 - [ ] Entire harness was inspected (architecture, prompts, tools, memory, RAG, evals, security, configs).
 - [ ] All 5 parameters scored objectively with evidence.
-- [ ] Grounding & Evals scored out of 5.0 (Grounding 2.5 + Evals 2.5).
-- [ ] Total score calculated out of 405.0 (NOT normalized to 100).
+- [ ] Grounding & Evals scored out of 50.0 (Grounding 25.0 + Evals 25.0).
+- [ ] Total score calculated out of 450.0 (NOT normalized to 100).
 - [ ] All sensitive secrets redacted in report.
 - [ ] No source code or existing project files were modified (read-only restriction obeyed).
 - [ ] `hack_evaluation.md` generated at root following the required structure.
