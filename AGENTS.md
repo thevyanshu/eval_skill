@@ -24,3 +24,22 @@ This repository defines the **AI Agent Hackathon Evaluator Skill**. All agents o
    - Selectively stage `hack_evaluation.md` and commit with message: `chore: add AI agent hackathon evaluation`.
 4. **Chat Response:**
    - Respond in chat with strictly: `File created`.
+
+---
+
+### `/prompt-eval [prompt_or_file]` (or `/eval-prompt`)
+
+**Intent:** Execute a complete prompt evaluation of any written prompt or prompt file across Prompt Clarity (/100), Output Quality (/100), and Efficiency (/50) totaling **250 marks**, outputting to `prompt_eval.md`.
+
+**Execution Protocol:**
+1. **Extract Target Prompt:**
+   - Use the prompt text or file path provided as argument.
+   - If missing, check [.agents/skills/prompt-eval/SKILL.md](file:///f:/globalai/eval_skill/.agents/skills/prompt-eval/SKILL.md) or prompt user: *"Please provide the prompt text or the path to the prompt file you would like to evaluate."*
+2. **Execute Evaluation Skill:**
+   - Refer to [.agents/skills/prompt-eval/SKILL.md](file:///f:/globalai/eval_skill/.agents/skills/prompt-eval/SKILL.md).
+   - Score the 3 criteria (Prompt Clarity /100, Output Quality /100, Efficiency /50) totaling **250 marks**.
+   - Generate `prompt_eval.md` including a production-ready optimized rewrite.
+3. **Commit:**
+   - Selectively stage `prompt_eval.md` and commit with message: `chore: add prompt evaluation report`.
+4. **Chat Response:**
+   - Output score summary and key recommendations in chat.

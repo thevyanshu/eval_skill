@@ -1,12 +1,12 @@
-# AI Agent Hackathon Evaluation Skill
+# AI Evaluation Skills Repository
 
-A reusable evaluation skill designed for coding agents to rigorously judge hackathon submissions of AI agents and their complete harnesses against a defined problem statement.
+A suite of reusable evaluation skills designed for coding agents to rigorously judge hackathon submissions, AI agent harnesses, and prompt engineering implementations.
 
 ---
 
-## ⚡ Quick Setup: Add This Skill to Any Project
+## ⚡ Quick Setup: Add These Skills to Any Project
 
-To evaluate any hackathon submission using your preferred coding agent, copy the skill configuration into the root of the project you want to judge:
+To evaluate any hackathon submission or prompt using your preferred coding agent, copy the skill configuration into the root of the project you want to judge:
 
 ### 1. Copy Skill Configuration to Target Repository
 
@@ -26,31 +26,26 @@ cp -r path/to/eval_skill/{.agents,.claude,.github,.opencode,AGENTS.md} .
 
 ---
 
-### 2. Run the Evaluation in Your Coding Agent
+### 2. Available Skills & Slash Commands
 
-Open the target project in your coding assistant and type:
-
-| Coding Agent | Slash Command / Prompt | How to Run |
-|---|---|---|
-| **Antigravity (AGY)** | `/hack-eval <problem_statement>` | Native model rule detects command automatically |
-| **Claude Code** | `/hack-eval <problem_statement>` | Native command loaded from `.claude/commands/hack-eval.md` |
-| **GitHub Copilot** | `/hack-eval <problem_statement>` | Select `/hack-eval` in Copilot Chat prompt picker |
-| **OpenCode** | `/hack-eval <problem_statement>` | Native command loaded from `.opencode/commands/hack-eval.md` |
-| **Cursor / Windsurf / Others** | Type in chat: *"Execute /hack-eval using AGENTS.md"* | Guided by standard `AGENTS.md` |
-
-> 💡 **Tip:** You can supply the hackathon problem statement directly in the command (e.g. `/hack-eval "Build an AI Travel Agent..."`). The skill already comes pre-configured with the **AI Travel Agent** problem statement.
+| Skill | Slash Command | Criteria & Total | Output Report | Target |
+|---|---|---|---|---|
+| **Hackathon Agent Evaluator** | `/hack-eval` | Alignment (100) + Code Quality (100) + Innovation (100) + Security (100) + Grounding & Evals (50) = **450 Marks** | `hack_evaluation.md` | Full agent harness & codebase |
+| **Prompt Evaluator** | `/prompt-eval` | Prompt Clarity (100) + Output Quality (100) + Efficiency (50) = **250 Marks** | `prompt_eval.md` | Any prompt text or prompt file |
 
 ---
 
-## Overview
+### 3. Run Evaluations in Your Coding Agent
 
-This repository provides the **AI Agent Hackathon Evaluation Skill** (`hack-eval`). The skill instructs a coding agent to objectively inspect a project codebase, analyze all components of the AI agent harness, assign evidence-based scores across five evaluation parameters, generate a standardized Markdown evaluation report (`hack_evaluation.md`), commit the report to Git, and return a strict chat response.
+Open the target project in your coding assistant and run:
 
-### Skill Locations
-The skill is packaged according to Antigravity's workspace customization standards and is available in:
-- `.agents/skills/hack-eval/SKILL.md` (Native Antigravity Customization Root)
-- `skills/hack-eval/SKILL.md` (Standard Skills Directory)
-- `.agents/skills.json` (Customization manifest)
+| Coding Agent | Hackathon Evaluation | Prompt Evaluation |
+|---|---|---|
+| **Antigravity (AGY)** | `/hack-eval` | `/prompt-eval <prompt_or_file>` |
+| **Claude Code** | `/hack-eval` | `/prompt-eval <prompt_or_file>` |
+| **GitHub Copilot** | Select `/hack-eval` | Select `/prompt-eval` |
+| **OpenCode** | `/hack-eval` | `/prompt-eval <prompt_or_file>` |
+| **Cursor / Others** | *"Execute /hack-eval"* | *"Execute /prompt-eval on [target]"* |
 
 ---
 
@@ -60,45 +55,49 @@ The skill is packaged according to Antigravity's workspace customization standar
 eval_skill/
 ├── .agents/
 │   ├── rules/
-│   │   └── hack-eval-command.md                  # Antigravity /hack-eval rule
+│   │   ├── hack-eval-command.md                  # Antigravity /hack-eval rule
+│   │   └── prompt-eval-command.md                # Antigravity /prompt-eval rule
 │   ├── skills.json                               # Skills configuration manifest
 │   └── skills/
-│       └── hack-eval/
-│           ├── SKILL.md                          # Master executable evaluation skill
+│       ├── hack-eval/                            # Hackathon Agent Evaluator Skill
+│       │   ├── SKILL.md                          # Master executable evaluation skill
+│       │   ├── references/
+│       │   │   ├── scoring-rubric.md             # Scoring bands across 5 parameters
+│       │   │   ├── security-checklist.md         # 5-dimension security audit checklist
+│       │   │   └── harness-inspection-guide.md   # Step-by-step harness discovery guide
+│       │   └── resources/
+│       │       └── report-template.md            # Template for hack_evaluation.md
+│       └── prompt-eval/                          # Prompt Evaluator Skill
+│           ├── SKILL.md                          # Master prompt evaluation skill
 │           ├── references/
-│           │   ├── scoring-rubric.md             # Detailed scoring bands and criteria
-│           │   ├── security-checklist.md         # 5-dimension security audit checklist
-│           │   └── harness-inspection-guide.md   # Step-by-step harness discovery guide
+│           │   └── scoring-rubric.md             # Scoring rubric across 3 criteria
 │           └── resources/
-│               └── report-template.md            # Structural template for hack_evaluation.md
+│               └── report-template.md            # Template for prompt_eval.md
 ├── .claude/
 │   └── commands/
-│       └── hack-eval.md                          # Claude Code slash command
+│       ├── hack-eval.md                          # Claude Code /hack-eval command
+│       └── prompt-eval.md                        # Claude Code /prompt-eval command
 ├── .github/
 │   ├── copilot-instructions.md                   # GitHub Copilot agent instructions
 │   └── prompts/
-│       └── hack-eval.prompt.md                   # GitHub Copilot slash prompt
+│       ├── hack-eval.prompt.md                   # GitHub Copilot /hack-eval prompt
+│       └── prompt-eval.prompt.md                 # GitHub Copilot /prompt-eval prompt
 ├── .opencode/
 │   └── commands/
-│       └── hack-eval.md                          # OpenCode slash command
+│       ├── hack-eval.md                          # OpenCode /hack-eval command
+│       └── prompt-eval.md                        # OpenCode /prompt-eval command
 ├── AGENTS.md                                     # Universal agent configuration
 ├── skills/
-│   └── hack-eval/                                # Mirrored skill package
-│       ├── SKILL.md
-│       ├── references/
-│       │   ├── scoring-rubric.md
-│       │   ├── security-checklist.md
-│       │   └── harness-inspection-guide.md
-│       └── resources/
-│           └── report-template.md
+│   ├── hack-eval/                                # Mirrored hack-eval package
+│   └── prompt-eval/                              # Mirrored prompt-eval package
 └── README.md                                     # Repository documentation
 ```
 
 ---
 
-## Evaluation Parameters & Scoring System
+## Skill 1: `hack-eval` (AI Agent Hackathon Evaluator)
 
-The evaluation is scored out of **450 total marks** (primary scores are never normalized to 100):
+Evaluates an AI agent harness across 5 parameters totaling **450 marks**:
 
 | Parameter | Maximum Marks | Description |
 |---|---|---|
@@ -109,57 +108,32 @@ The evaluation is scored out of **450 total marks** (primary scores are never no
 | **5. Grounding and Evals** | 50 | **Grounding (25 pts):** Factual fidelity, citations, hallucination guards. <br>**Evals (25 pts):** Deterministic tests, trajectory evals, benchmark datasets. |
 | **Total Score** | **450** | Total sum of all parameters. |
 
+- Pre-configured with the **AI Travel Agent** hackathon challenge.
+- Read-only execution: modifies **ONLY** `hack_evaluation.md`.
+- Automatically commits: `chore: add AI agent hackathon evaluation`.
+- Chat response: `File created`.
 
 ---
 
-## Core Operational Protocols
+## Skill 2: `prompt-eval` (Prompt Evaluator)
 
-### 1. Problem Statement Handling
-The skill contains a prominent `[PROBLEM_STATEMENT]` placeholder.
-- **Before evaluation:** The user or orchestrator replaces `[PROBLEM_STATEMENT]` with the hackathon problem statement.
-- **Validation check:** If `[PROBLEM_STATEMENT]` is unreplaced, empty, or whitespace, the evaluator immediately halts and asks the user for the problem statement in chat. It does not inspect the code or create any files until provided.
+Evaluates any written prompt, system prompt, or prompt template across 3 parameters totaling **250 marks**:
 
-### 2. Read-Only Safety Guardrails
-The evaluator functions purely as a read-only auditor:
-- May **NOT** modify project source code, refactor, or fix bugs.
-- May **NOT** alter configuration or install dependencies.
-- May **NOT** create evaluation scripts inside the target project.
-- **ONLY `hack_evaluation.md` may be created or modified.**
+| Parameter | Maximum Marks | Description |
+|---|---|---|
+| **1. Prompt Clarity** | 100 | Role/persona definition (20), task specificity & negative constraints (25), delimiters/structure (20), tone & audience (15), unambiguous phrasing (20). |
+| **2. Output Quality** | 100 | Output format & schema constraints (30), few-shot examples (25), edge case & fallback guidance (25), factuality & hallucination mitigation (20). |
+| **3. Efficiency** | 50 | Conciseness & fluff elimination (15), token footprint & context economy (15), dynamic parameterization (10), signal-to-noise ratio (10). |
+| **Total Score** | **250** | Total sum of all three parameters. |
 
-### 3. Immediate Git Commit Protocol
-Once `hack_evaluation.md` is generated:
-1. Git state is checked (initialized if absent).
-2. Existing user changes are preserved; **ONLY** `hack_evaluation.md` is staged.
-3. Committed with exact message:
-   ```bash
-   git commit -m "chore: add AI agent hackathon evaluation"
-   ```
-4. No user confirmation prompt is requested before committing.
-
-### 4. Strict Chat Output
-Upon successful creation and commit of `hack_evaluation.md`, the evaluator agent outputs **EXACTLY**:
-```text
-File created
-```
-No scores, summaries, or explanatory text are displayed in the chat.
-
----
-
-## Universal Slash Command (`/hack-eval`)
-
-This skill includes native configuration for leading AI coding assistants:
-
-| Assistant | Slash Command | Config Location | How to Invoke |
-|---|---|---|---|
-| **Antigravity (AGY)** | `/hack-eval` or `/skill` | `.agents/rules/hack-eval-command.md` | Type `/hack-eval <problem_statement>` |
-| **Claude Code** | `/hack-eval` | `.claude/commands/hack-eval.md` | Type `/hack-eval <problem_statement>` |
-| **GitHub Copilot** | `/hack-eval` | `.github/prompts/hack-eval.prompt.md` | Select or type `/hack-eval` in Copilot Chat |
-| **OpenCode** | `/hack-eval` | `.opencode/commands/hack-eval.md` | Type `/hack-eval <problem_statement>` |
-| **Any Agent** | Universal | `AGENTS.md` | Follows standard `AGENTS.md` instruction file |
-
-### Usage Example:
-```text
-/hack-eval Build an AI Travel Agent that can understand a user's travel preferences and constraints, use relevant tools/data, and create a personalized, practical, and adaptive travel plan.
-```
-If you run `/hack-eval` without arguments, it will use the pre-configured AI Travel Agent problem statement from `SKILL.md`.
-
+- Output artifact: `prompt_eval.md`.
+- Includes an **optimized, production-ready refactored version** of the evaluated prompt.
+- Automatically commits: `chore: add prompt evaluation report`.
+- Usage example:
+  ```text
+  /prompt-eval "You are an expert travel agent. Plan a 5-day trip to Tokyo."
+  ```
+  or evaluate a file:
+  ```text
+  /prompt-eval path/to/prompt.txt
+  ```
