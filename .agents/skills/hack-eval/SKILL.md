@@ -11,10 +11,34 @@ This skill governs the end-to-end evaluation of an AI agent's implementation and
 
 ## 1. Problem Statement Configuration
 
-Replace the placeholder below with the actual hackathon problem statement before executing the evaluation:
-
 ```text
-[PROBLEM_STATEMENT]
+# 🧳 Hackathon Challenge: Build an AI Travel Agent
+
+### Problem Statement
+
+Build an **AI Travel Agent** that can understand a user's travel preferences and constraints, use relevant tools/data, and create a **personalized, practical, and adaptive travel plan**.
+
+The agent should be able to handle requests such as:
+
+> “Plan a 5-day trip from Delhi for 2 people under ₹50K, focused on nature and food, with a relaxed itinerary.”
+
+**Your agent should demonstrate:**
+Intent & constraint understanding • Tool/API usage • Planning & reasoning • Personalization • Itinerary generation • Re-planning when requirements change • Safe handling of untrusted inputs
+
+### 🏆 Judging Criteria — 450 Marks
+
+| Criteria                        |         Marks |
+| ------------------------------- | ------------: |
+| **Problem Statement Alignment** | **100 marks** |
+| **Code Quality**                | **100 marks** |
+| **Innovation**                  | **100 marks** |
+| **Security**                    | **100 marks** |
+| **Grounding & Evals**           |  **50 marks** |
+| **Total**                       | **450 marks** |
+
+**Grounding & Evals:** Are recommendations grounded in reliable sources, and does the team have meaningful tests/evaluations demonstrating agent quality and reliability?
+
+**💡 Judge on outcomes, not complexity:** More agents, tools, or frameworks ≠ better solution.
 ```
 
 ### Pre-Execution Problem Statement Validation (CRITICAL FIRST STEP)

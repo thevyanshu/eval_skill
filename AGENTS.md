@@ -12,8 +12,8 @@ This repository defines the **AI Agent Hackathon Evaluator Skill**. All agents o
 
 **Execution Protocol:**
 1. **Extract Problem Statement:**
-   - If argument `[problem_statement]` is provided in the slash command (e.g., `/hack-eval Build a multi-agent triage system...`), use it as the ground truth.
-   - If no problem statement is provided in the command, check if [.agents/skills/hack-eval/SKILL.md](file:///f:/globalai/eval_skill/.agents/skills/hack-eval/SKILL.md) has had its `[PROBLEM_STATEMENT]` placeholder replaced.
+   - If argument `[problem_statement]` is provided in the slash command (e.g., `/hack-eval Build an AI Travel Agent...`), use it as the ground truth.
+   - If no problem statement is provided in the command, check if [.agents/skills/hack-eval/SKILL.md](file:///f:/globalai/eval_skill/.agents/skills/hack-eval/SKILL.md) has had its problem statement configured.
    - If still missing, **HALT** and prompt the user: *"Please provide the hackathon problem statement to begin the AI agent evaluation."*
 2. **Execute Evaluation Skill:**
    - Refer to [.agents/skills/hack-eval/SKILL.md](file:///f:/globalai/eval_skill/.agents/skills/hack-eval/SKILL.md).

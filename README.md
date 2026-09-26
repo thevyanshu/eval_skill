@@ -38,7 +38,7 @@ Open the target project in your coding assistant and type:
 | **OpenCode** | `/hack-eval <problem_statement>` | Native command loaded from `.opencode/commands/hack-eval.md` |
 | **Cursor / Windsurf / Others** | Type in chat: *"Execute /hack-eval using AGENTS.md"* | Guided by standard `AGENTS.md` |
 
-> 💡 **Tip:** You can supply the hackathon problem statement directly in the command (e.g. `/hack-eval "Build a multi-agent triage system..."`). If omitted, the agent will pause and prompt you to enter it before running.
+> 💡 **Tip:** You can supply the hackathon problem statement directly in the command (e.g. `/hack-eval "Build an AI Travel Agent..."`). The skill already comes pre-configured with the **AI Travel Agent** problem statement.
 
 ---
 
@@ -159,7 +159,7 @@ This skill includes native configuration for leading AI coding assistants:
 
 ### Usage Example:
 ```text
-/hack-eval Build a multi-agent customer support triage system that classifies incoming tickets, runs RAG on product docs, and drafts replies.
+/hack-eval Build an AI Travel Agent that can understand a user's travel preferences and constraints, use relevant tools/data, and create a personalized, practical, and adaptive travel plan.
 ```
-If you omit the problem statement, the agent will pause and prompt you for it before running the evaluation.
+If you run `/hack-eval` without arguments, it will use the pre-configured AI Travel Agent problem statement from `SKILL.md`.
 
